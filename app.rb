@@ -28,6 +28,10 @@ get '/' do
   erb :index
 end
 
+get '/index' do
+  erb :index
+end
+
 get '/login/form' do
   erb :login_form
 end
