@@ -1,5 +1,10 @@
+#encoding: UTF-8
 require 'rubygems'
 require 'sinatra'
+require 'sinatra/reloader'
+require 'net/smtp'
+require 'sqlite3'
+require 'sinatra/activerecord'
 
 configure do
   enable :sessions
