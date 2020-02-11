@@ -1,8 +1,9 @@
+     function something()
+     {
+     	window.localStorage.setItem('aaa','555')
+     	
+     	var x = window.localStorage.getItem('aaa')
 
-    $(function something(){
-      alert('Hello! everyone');
-      });
+     	alert(x);
 
-     function something(){
-      alert('Hello! everyone1');
-      };
+     };
