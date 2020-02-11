@@ -1,9 +1,10 @@
      function something()
      {
-     	window.localStorage.setItem('aaa','555')
+		
+		var x = window.localStorage.getItem('aa');
+     	x = x * 1 + 1;
      	
-     	var x = window.localStorage.getItem('aaa')
-
-     	alert(x);
-
+     	window.localStorage.setItem('aa',x);
+     	
+     	
      };

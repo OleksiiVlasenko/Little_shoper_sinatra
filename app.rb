@@ -6,6 +6,9 @@ require 'net/smtp'
 require 'sqlite3'
 require 'sinatra/activerecord'
 
+set :database, "sqlite3:shoper.db"
+
+
 configure do
   enable :sessions
 end
@@ -23,6 +26,13 @@ before '/secure/*' do
     halt erb(:login_form)
   end
 end
+
+
+class Product < Activerecord::Base
+
+end
+
+
 
 get '/' do
   erb :index
