@@ -3,18 +3,19 @@
 
   <div class="container">
   <div class="row row-cols-3">
+   <%@product.each do |product|%>
     <div class="col-xl-4">
       <!-- Начало внутреннего контейнера -->
 
             <div class="container">
               <div class="row ">
-                <div class="col-9">Фото</div>
-                <div class="col-4">Название</div>
-                <div class="col-4">Цена</div>
-                <div class="col-12">Описание</div>
-                <div class="col-12">Размер</div>
+                <div class="col-9"><img src="<%=product.picture%>"></div>
+                <div class="col-4"><%=product.title%></div>
+                <div class="col-4"><%=product.price%></div>
+                <div class="col-12"><%=product.description%></div>
+                <div class="col-12"><%=product.size%></div>
                 <div class="col-12">Тип</div>
-                <div class="col-12">Предложение</div>
+                <div class="col-12"><%=product.is_best_offer%></div>
 
                 <div class="col-12"><button class="btn btn-primary" id="allert" onclick="something()">Accept</button></div>
               </div>
@@ -22,37 +23,6 @@
 
       <!-- Конец внутреннего контейнера -->
     </div>
-     <div class="col-xl-4">
-      <!-- Начало внутреннего контейнера -->
-     <div class="container">
-              <div class="row">
-                <div class="col-9">Фото</div>
-                <div class="col-4">Название</div>
-                <div class="col-4">Цена</div>
-                <div class="col-12">Описание</div>
-                <div class="col-12">Размер</div>
-                <div class="col-12">Тип</div>
-                <div class="col-12">Предложение</div>
-                <div class="col-12"><button class="btn btn-primary" id="allert" onclick="something()">Accept</button></div>
-              </div>
-            </div>
-      <!-- Конец внутреннего контейнера -->
-    </div>
-     <div class="col-xl-4">
-      <!-- Начало внутреннего контейнера -->
-     <div class="container">
-              <div class="row">
-                <div class="col-9">Фото</div>
-                <div class="col-4">Название</div>
-                <div class="col-4">Цена</div>
-                <div class="col-12">Описание</div>
-                <div class="col-12">Размер</div>
-                <div class="col-12">Тип</div>
-                <div class="col-12">Предложение</div>
-                <div class="col-12"><button class="btn btn-primary" id="allert" onclick="something()">Accept</button></div>
-              </div>
-            </div>
-      <!-- Конец внутреннего контейнера -->
-    </div>
+      <%end%>
   </div>
 </div>
