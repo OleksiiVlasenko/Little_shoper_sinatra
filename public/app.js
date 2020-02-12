@@ -6,10 +6,15 @@
      };
 
      function add_to_cart(id){
-         var x = window.localStorage.getItem('cart');
-          x = x * 1 + 1;
+         var key = 'product_'+id;
+         var x = window.localStorage.getItem(key);
+         x = x *1 +1;
           
-          window.localStorage.setItem('cart',x);
+          window.localStorage.setItem(key,x);
      
-               alert('You added pizza with id:'+id);
+               alert('You added pizza with id: '+ x );
+     }
+     function buy(){
+         window.localStorage.clear();
+         
      }
