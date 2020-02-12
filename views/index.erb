@@ -1,5 +1,5 @@
 
-  
+  <br>
 
   <div class="container">
   <div class="row row-cols-3">
@@ -9,15 +9,16 @@
 
             <div class="container">
               <div class="row ">
-                <div class="col-9"><img src="<%=product.picture%>"></div>
-                <div class="col-4"><%=product.title%></div>
-                <div class="col-4"><%=product.price%></div>
-                <div class="col-12"><%=product.description%></div>
-                <div class="col-12"><%=product.size%></div>
-                <div class="col-12">Тип</div>
-                <div class="col-12"><%=product.is_best_offer%></div>
+                <div class="col-4"><h1><%=product.title%></h1></div>
+                <div class="col-9"><img src="<%=product.picture%>" width="150" height="100"></div>
+                <div class="col-4"><h5><%=product.price%> грн.</h5></div>
+                <div class="col-12"><small>Описание: <%=product.description%></small></div>
+                <div class="col-12"><small>Размер: <%=product.size%> см.</small></div>
+                <div class="col-12"><small>Описание: Тип</small></div>
+                <div class="col-12"><small>Скидка: <%=product.is_best_offer%></small></div>
 
-                <div class="col-12"><button class="btn btn-primary" id="allert" onclick="something()">Accept</button></div>
+                <div class="col-12">
+                <button class="btn btn-success btn-sm" id="allert" onclick="something()">В корзину</button></div>
               </div>
             </div>
 
