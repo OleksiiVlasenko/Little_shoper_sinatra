@@ -10,6 +10,8 @@ class CreateProducts < ActiveRecord::Migration[6.0]
   		t.boolean :is_best_offer
   		t.string :picture
   		t.timestamps
+
+  		
   	end
   end
 end
