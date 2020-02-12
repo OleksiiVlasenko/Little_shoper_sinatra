@@ -28,7 +28,7 @@ before '/secure/*' do
 end
 
 
-class Product < Activerecord::Base
+class Product < ActiveRecord::Base
 
 end
 
