@@ -12,7 +12,7 @@
           
           window.localStorage.setItem(key,x);
      
-               alert('You added pizza with id: '+ x );
+               // alert('You added pizza with id: '+ x );
                total_order_count();
      }
      function buy(){
@@ -33,5 +33,5 @@
                }
          }
        var total_out = document.getElementById('total_order_count');
-       total_out.value = total; 
+       total_out.value = 'В корзине : '+total+' пицц'; 
      }
