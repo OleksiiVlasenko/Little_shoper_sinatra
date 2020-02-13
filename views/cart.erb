@@ -1,7 +1,8 @@
 <%total=0%>
+<%order_number = Time.now%>
 <center><H1>Ваш заказ!</H1></center>
 
-
+<form action="/cart" method="POST">
 <div class="container">
   <div class="row row-cols-3">
  
@@ -13,17 +14,20 @@
       <!-- Начало внутреннего контейнера -->
 
 
-
+<input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[id_pizza]" value="<%=res[0]%>">
 
             <div class="container">
               <div class="row ">
-                <div class="col-4"><h1><%=prod.title%></h1></div>
+                 
+                <div class="col-4"><input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[order_number]" value="<%=order_number%>"><%=prod.title%></div>
                 <div class="col-9"><img src="<%=prod.picture%>" width="150" height="100"></div>
                 <div class="col-4"><h5>Цена <%=prod.price%> грн.</h5></div>
                  <div class="col-12"><small>Скидка: </small></div>
 
                 <div class="col-12">
-                 <h6><b> Количество: </b><%=res[1]%></h6>
+                 <h6><b> 
+                 <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[quantity]" value="<%=res[1]%>">Количество: </b><%=res[1]%></h6>
+                  
                   <%total+=res[1].to_i*prod.price%>
                </div>
               </div>
@@ -33,5 +37,9 @@
     </div>
     <%end%>
   </div>
-  <center><h3><b>Общая сумма: </b><%=total%> грн.</h3></center>
+  <center><h3><b>Общая сумма: </b>
+     
+    <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[total_summ]" value="<%=total%>"><%=total%> грн.</h3></center>
 </div>
+ <center><button type="submit" class="btn btn-danger btn-Lg" id="add_order">Заказать</button> </center>
+</form>

@@ -32,6 +32,10 @@ class Product < ActiveRecord::Base
 
 end
 
+class Order < ActiveRecord::Base
+
+end
+
 
 
 get '/' do
@@ -44,7 +48,8 @@ end
 post '/cart' do
    @orders = params['orders1']
    
-
+    order = Order.new params[:element]
+   order.save
   erb :cart
 end
 
