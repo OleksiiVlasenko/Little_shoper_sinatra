@@ -46,8 +46,23 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li>
 					<form action="/cart" method="POST">
-					<input type="hidden" id="orders">
-					<input type="submit" class="btn btn-danger btn-xl" id="total_order_count" value="Корзина">
+					<input type="hidden" name="orders1" id="orders1">
+					
+
+					<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="/cart" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<input type="button" class="btn btn-danger btn-xl" id="total_order_count" value="Корзина">
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="/cart">
+								<button type="submit" class="btn btn-danger btn-sm" id="orders_to_cart">Перейти в корзину</button>
+								</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="/"><button type="submit" class="btn btn-danger btn-sm" id="orders_to_cart" onclick="clear_order()">Очистить корзину</button></a>
+
+							</div>
+
+						</li>
 					</form>
 					
 				</li>
