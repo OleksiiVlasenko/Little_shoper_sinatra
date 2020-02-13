@@ -6,7 +6,7 @@
      };
 
      function add_to_cart(id){
-         var key = 'product_'+id;
+         var key = id;
          var x = window.localStorage.getItem(key);
          x = x *1 +1;
           
@@ -15,10 +15,10 @@
                // alert('You added pizza with id: '+ x );
                update_orders();
      }
-     // function buy(){
-     //     window.localStorage.clear();
+     function clear_order(){
+         window.localStorage.clear();
          
-     // }
+     }
 
      function total_order_count(){
          total =0;
@@ -26,7 +26,7 @@
          {
           var key = window.localStorage.key(i); // get key from hash Localstorage
           var value = window.localStorage.getItem(key);
-          if (key.indexOf('product_') == 0)
+          if (key.indexOf(key) == 0)
                {
                    
                     total +=value *1;
@@ -42,7 +42,7 @@
          {
           var key = window.localStorage.key(i); // get key from hash Localstorage
           var value = window.localStorage.getItem(key);
-          if (key.indexOf('product_') == 0)
+          if (key.indexOf(key) == 0)
                {
                    
                    orders = orders+key+'='+value+','
@@ -58,6 +58,6 @@
           var orders = total_order_cart();
           var total_count_value = total_order_count();
            $('#total_order_count').val('В корзине : '+total_count_value+' пицц'); 
-           $('#orders').val(orders); 
-           
+           $('#orders1').val(orders); 
+
      }
