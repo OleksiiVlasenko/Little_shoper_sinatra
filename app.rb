@@ -42,11 +42,20 @@ end
 
 
 post '/cart' do
-  erb "Hello World"
+   @orders = params['orders1']
+   
+
+  erb :cart
 end
 
 get '/cart' do
-  "Hello World"
+
+  # @orders = params['orders1']
+  # order = orders.split(',')
+  #  @id = 1step[0]
+  #  @count = 1step[1]
+
+  erb :cart
 end
 
 
