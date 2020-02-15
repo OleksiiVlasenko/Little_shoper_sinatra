@@ -1,20 +1,22 @@
-<%total=0%>
+ <%total=0%>
+
+
 <%order_number = Time.now%>
 <center><H1>Ваш заказ!</H1></center>
 
 <form action="/cart" method="POST">
 <div class="container">
   <div class="row row-cols-3">
- 
-<%y = @orders.split(%r{,\s*})%>
-<%y.each do |i|%>
- <% res = i.split('=')%>
- <%prod = Product.find(res[0]) %>
+<%@s1.each do |x|%>
+  <%s2 = x.split(/=/)%>
+  <%@key = s2[0]%>
+  <%@value = s2[1]%>
+ <%prod = Product.find(@key) %>
     <div class="col-xl-4">
       <!-- Начало внутреннего контейнера -->
 
 
-<input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[id_pizza]" value="<%=res[0]%>">
+<input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[id_pizza]" value="<%=@key%>">
 
             <div class="container">
               <div class="row ">
@@ -26,16 +28,17 @@
 
                 <div class="col-12">
                  <h6><b> 
-                 <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[quantity]" value="<%=res[1]%>">Количество: </b><%=res[1]%></h6>
+                 <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[quantity]" value="<%=@value%>">Количество: </b><%=@value%></h6>
                   
-                  <%total+=res[1].to_i*prod.price%>
+                  <%total+=@value.to_i*prod.price%>
                </div>
+
               </div>
             </div>
 
       <!-- Конец внутреннего контейнера -->
     </div>
-    <%end%>
+   <%end%>
   </div>
   <center><h3><b>Общая сумма: </b>
      

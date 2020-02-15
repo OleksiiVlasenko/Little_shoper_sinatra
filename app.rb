@@ -43,15 +43,36 @@ get '/' do
   erb :index
 end
 
+def parse_orders order_input
+  arr = []
+  s1 = order_input.split(/,/)
+
+  s1.each do |x|
+    s2 = x.split(/\=/)
+    key = s2[0]
+    value = s2[1]
+    arr2 = [key ,value]
+    arr.push arr2
+end
+return arr
+end
 
 
 post '/cart' do
    @orders = params['orders1']
-   
-    order = Order.new params[:element]
-   order.save
+ 
+@s1 = @orders.split(/,/)
+ orders_input = params['orders1']
+  @ord = parse_orders orders_input
+
+
+  order = Order.new params[:element]
+  order.save
   erb :cart
 end
+
+
+
 
 get '/cart' do
 
