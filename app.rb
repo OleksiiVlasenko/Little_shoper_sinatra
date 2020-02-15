@@ -59,11 +59,16 @@ end
 
 
 post '/cart' do
-   @orders = params['orders1']
- 
-@s1 = @orders.split(/,/)
- orders_input = params['orders1']
-  @ord = parse_orders orders_input
+  @orders = params['orders1']
+  @s1 = @orders.split(/,/)
+  orders_input = params['orders1']
+  @items = parse_orders orders_input
+  
+  @items.each do |item|
+    item[0] = Product.find(item[0])
+  end
+
+
 
 
   order = Order.new params[:element]

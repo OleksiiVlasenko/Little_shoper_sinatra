@@ -7,11 +7,9 @@
 <form action="/cart" method="POST">
 <div class="container">
   <div class="row row-cols-3">
-<%@s1.each do |x|%>
-  <%s2 = x.split(/=/)%>
-  <%@key = s2[0]%>
-  <%@value = s2[1]%>
- <%prod = Product.find(@key) %>
+
+<% @items.each do |item|%>
+
     <div class="col-xl-4">
       <!-- Начало внутреннего контейнера -->
 
@@ -21,16 +19,16 @@
             <div class="container">
               <div class="row ">
                  
-                <div class="col-4"><input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[order_number]" value="<%=order_number%>"><%=prod.title%></div>
-                <div class="col-9"><img src="<%=prod.picture%>" width="150" height="100"></div>
-                <div class="col-4"><h5>Цена <%=prod.price%> грн.</h5></div>
+                <div class="col-4"><input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[order_number]" value="<%=order_number%>"><%=item[0].title%></div>
+                <div class="col-9"><img src="<%=item[0].picture%>" width="150" height="100"></div>
+                <div class="col-4"><h5>Цена <%=item[0].price%> грн.</h5></div>
                  <div class="col-12"><small>Скидка: </small></div>
 
                 <div class="col-12">
                  <h6><b> 
-                 <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[quantity]" value="<%=@value%>">Количество: </b><%=@value%></h6>
+                 <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[quantity]" value="<%=item[1]%>">Количество: </b><%=item[1]%></h6>
                   
-                  <%total+=@value.to_i*prod.price%>
+                  <%total+=item[1].to_i*item[0].price.to_i%>
                </div>
 
               </div>
