@@ -13,10 +13,13 @@
 ActiveRecord::Schema.define(version: 2020_02_13_105220) do
 
   create_table "orders", force: :cascade do |t|
-    t.string "order_number"
+    t.string "orders_input"
     t.decimal "quantity"
     t.decimal "id_pizza"
     t.decimal "total_summ"
+    t.text "phone"
+    t.text "adress"
+    t.text "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
