@@ -79,8 +79,13 @@ end
 
 post '/post_orders' do
   new_order = Order.new params[:order]
-  new_order.save
-  erb "save"
+  if new_order.save
+  @error = "Your order is save"
+  erb:post_orders
+else 
+  @error = "Your order is NOT save"
+
+end
 end
 
 
