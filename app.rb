@@ -61,8 +61,8 @@ end
 post '/cart' do
   @orders = params['orders1']
   @s1 = @orders.split(/,/)
-  orders_input = params['orders1']
-  @items = parse_orders orders_input
+  @orders_input = params['orders1']
+  @items = parse_orders @orders_input
   
   @items.each do |item|
     item[0] = Product.find(item[0])
@@ -71,9 +71,16 @@ post '/cart' do
 
 
 
-  order = Order.new params[:element]
-  order.save
+  # @order = Order.new params[:order]
+  
   erb :cart
+end
+
+
+post '/post_orders' do
+  new_order = Order.new params[:order]
+  new_order.save
+  erb "save"
 end
 
 
